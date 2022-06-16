@@ -7,5 +7,3 @@ def info_box(parent, title: str, text: str):
     info_message.setInformativeText(text)
     info_message.setParent(parent)
     info_message.show()
-
-

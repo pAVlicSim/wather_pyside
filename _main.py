@@ -17,8 +17,8 @@ from PySide6.QtGui import (QAction, QBrush, QColor, QConicalGradient,
     QPainter, QPalette, QPixmap, QRadialGradient,
     QTransform)
 from PySide6.QtWidgets import (QApplication, QLabel, QMainWindow, QMenu,
-    QMenuBar, QSizePolicy, QStatusBar, QVBoxLayout,
-    QWidget)
+    QMenuBar, QScrollArea, QSizePolicy, QStatusBar,
+    QVBoxLayout, QWidget)
 
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
@@ -29,6 +29,8 @@ class Ui_MainWindow(object):
         self.action_search.setObjectName(u"action_search")
         self.action_charts = QAction(MainWindow)
         self.action_charts.setObjectName(u"action_charts")
+        self.action = QAction(MainWindow)
+        self.action.setObjectName(u"action")
         self.action_favorites = QAction(MainWindow)
         self.action_favorites.setObjectName(u"action_favorites")
         self.centralwidget = QWidget(MainWindow)
@@ -37,23 +39,46 @@ class Ui_MainWindow(object):
         self.verticalLayout_2.setObjectName(u"verticalLayout_2")
         self.verticalLayout = QVBoxLayout()
         self.verticalLayout.setObjectName(u"verticalLayout")
-        self.label_day1 = QLabel(self.centralwidget)
+        self.scrollArea = QScrollArea(self.centralwidget)
+        self.scrollArea.setObjectName(u"scrollArea")
+        self.scrollArea.setWidgetResizable(True)
+        self.scrollAreaWidgetContents = QWidget()
+        self.scrollAreaWidgetContents.setObjectName(u"scrollAreaWidgetContents")
+        self.scrollAreaWidgetContents.setGeometry(QRect(0, 0, 778, 510))
+        self.verticalLayout_4 = QVBoxLayout(self.scrollAreaWidgetContents)
+        self.verticalLayout_4.setObjectName(u"verticalLayout_4")
+        self.verticalLayout_3 = QVBoxLayout()
+        self.verticalLayout_3.setObjectName(u"verticalLayout_3")
+        self.label_now = QLabel(self.scrollAreaWidgetContents)
+        self.label_now.setObjectName(u"label_now")
+        self.label_now.setAlignment(Qt.AlignCenter)
+
+        self.verticalLayout_3.addWidget(self.label_now)
+
+        self.label_day1 = QLabel(self.scrollAreaWidgetContents)
         self.label_day1.setObjectName(u"label_day1")
         self.label_day1.setAlignment(Qt.AlignCenter)
 
-        self.verticalLayout.addWidget(self.label_day1)
+        self.verticalLayout_3.addWidget(self.label_day1)
 
-        self.label_day2 = QLabel(self.centralwidget)
+        self.label_day2 = QLabel(self.scrollAreaWidgetContents)
         self.label_day2.setObjectName(u"label_day2")
         self.label_day2.setAlignment(Qt.AlignCenter)
 
-        self.verticalLayout.addWidget(self.label_day2)
+        self.verticalLayout_3.addWidget(self.label_day2)
 
-        self.label_day3 = QLabel(self.centralwidget)
+        self.label_day3 = QLabel(self.scrollAreaWidgetContents)
         self.label_day3.setObjectName(u"label_day3")
         self.label_day3.setAlignment(Qt.AlignCenter)
 
-        self.verticalLayout.addWidget(self.label_day3)
+        self.verticalLayout_3.addWidget(self.label_day3)
+
+
+        self.verticalLayout_4.addLayout(self.verticalLayout_3)
+
+        self.scrollArea.setWidget(self.scrollAreaWidgetContents)
+
+        self.verticalLayout.addWidget(self.scrollArea)
 
 
         self.verticalLayout_2.addLayout(self.verticalLayout)
@@ -61,7 +86,7 @@ class Ui_MainWindow(object):
         MainWindow.setCentralWidget(self.centralwidget)
         self.menubar = QMenuBar(MainWindow)
         self.menubar.setObjectName(u"menubar")
-        self.menubar.setGeometry(QRect(0, 0, 800, 22))
+        self.menubar.setGeometry(QRect(0, 0, 800, 27))
         self.menu = QMenu(self.menubar)
         self.menu.setObjectName(u"menu")
         MainWindow.setMenuBar(self.menubar)
@@ -83,10 +108,12 @@ class Ui_MainWindow(object):
         MainWindow.setWindowTitle(QCoreApplication.translate("MainWindow", u"MainWindow", None))
         self.action_search.setText(QCoreApplication.translate("MainWindow", u"\u041d\u0430\u0439\u0442\u0438 \u0413\u043e\u0440\u043e\u0434", None))
         self.action_charts.setText(QCoreApplication.translate("MainWindow", u"\u0413\u0440\u0430\u0444\u0438\u043a\u0438", None))
+        self.action.setText(QCoreApplication.translate("MainWindow", u"\u0418\u0437\u0431\u0440\u0430\u043d\u043d\u043e\u0435", None))
         self.action_favorites.setText(QCoreApplication.translate("MainWindow", u"\u0418\u0437\u0431\u0440\u0430\u043d\u043d\u043e\u0435", None))
-        self.label_day1.setText(QCoreApplication.translate("MainWindow", u"TextLabel", None))
-        self.label_day2.setText(QCoreApplication.translate("MainWindow", u"TextLabel", None))
-        self.label_day3.setText(QCoreApplication.translate("MainWindow", u"TextLabel", None))
-        self.menu.setTitle(QCoreApplication.translate("MainWindow", u"\u041f\u043e\u043a\u0430\u0437\u0430\u0442\u044c", None))
+        self.label_now.setText(QCoreApplication.translate("MainWindow", u"\u041f\u043e\u0433\u043e\u0434\u0430 \u0441\u0435\u0439\u0447\u0430\u0441", None))
+        self.label_day1.setText(QCoreApplication.translate("MainWindow", u"\u0414\u0435\u043d\u044c 1", None))
+        self.label_day2.setText(QCoreApplication.translate("MainWindow", u"\u0414\u0435\u043d\u044c 2", None))
+        self.label_day3.setText(QCoreApplication.translate("MainWindow", u"\u0414\u0435\u043d\u044c 3", None))
+        self.menu.setTitle(QCoreApplication.translate("MainWindow", u"\u041c\u0435\u043d\u044e", None))
     # retranslateUi
 
