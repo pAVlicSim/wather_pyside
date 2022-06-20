@@ -17,7 +17,7 @@ def get_my_ip():
 # print(get_my_ip())
 
 
-def city_to_ip(my_ip: str):
+def ip_to_city(my_ip: str):
     try:
         resp = requests.get(f'http://ip-api.com/json/{my_ip}?lang=ru')
         return resp.json()
@@ -36,5 +36,3 @@ def get_weather_dict(ciy_name: str):
     except Exception as ex:
         print(ex)
 
-
-# pprint(get_weather_dict(city_to_ip(get_my_ip()[1])))
