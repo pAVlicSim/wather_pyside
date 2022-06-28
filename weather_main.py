@@ -3,9 +3,9 @@ from pprint import pprint
 
 from PySide6.QtCore import Qt
 from PySide6.QtGui import QIcon, QScreen
-from PySide6.QtWidgets import QMainWindow, QApplication, QInputDialog, QLabel
+from PySide6.QtWidgets import QMainWindow, QApplication, QLabel
 
-from _main import Ui_MainWindow
+from main_form import Ui_MainWindow
 from download_wether_dict import get_my_ip, get_weather_dict, ip_to_city
 from message_boxes import info_box
 from wd_data import get_now_str, get_daily_str
@@ -18,13 +18,13 @@ class WeatherMain(QMainWindow):
         self.ui = Ui_MainWindow()
         self.ui.setupUi(self)
 
-        self.w_dada = {}
+        self.w_data = {}
 
         self.download_data()
 
         # self.dialog_city = MyDialogCity()
-        self.ui.action_search.triggered.connect(self.dialog_city_show)
-        self.ui.action_favorites.triggered.connect(self.dialog_favorites_show)
+        # self.ui.action_search.triggered.connect(self.dialog_city_show)
+        # self.ui.action_favorites.triggered.connect(self.dialog_favorites_show)
         self.show_weather()
         self.show_daly()
 
@@ -37,52 +37,40 @@ class WeatherMain(QMainWindow):
             w_forec = []
             w_hour = []
             for i in w_d['forecast']['forecastday']:
-                w_forec.append(i['date'])
-                w_forec.append(i['day'])
+                w_forec.append([i['day'], i['astro'], i['date_epoch']])
                 w_hour.append(i['hour'])
-                pprint(w_forec)
-            self.w_dada['now'] = w_now
-            self.w_dada['loc'] = w_loc
-            self.w_dada['forec'] = w_forec
-            self.w_dada['hour'] = w_hour
+            pprint(w_forec)
+            self.w_data['now'] = w_now
+            self.w_data['loc'] = w_loc
+            self.w_data['forec'] = w_forec
+            self.w_data['hour'] = w_hour
         except TypeError:
             print('download_data: type_error')
             info_box(self, 'Сбой загрузки.', 'Не удалось загрузить данные.\n'
                                              'Проверьте соединение с интернетом.')
 
-    def dialog_city_show(self):
-        text, ok = QInputDialog.getText(self, 'Поиск места',
-                                        'ВВедите ваше местоположение: ')
-
-        if ok:
-            try:
-                w_d = get_weather_dict(text)
-                pass
-            except TypeError:
-                print('download_data: type_error')
-                info_box(self, 'Сбой загрузки.', 'Не удалось загрузить данные.\n'
-                                                 'Проверьте соединение с интернетом.')
-
-    def dialog_favorites_show(self):
-        text, ok = QInputDialog.getItem(self, 'Выбрать город',
-                                        'ВВыбрать город: ', self.city_list)
-        if ok:
-            try:
-                w_d = get_weather_dict(text)
-                pass
-            except TypeError:
-                print('download_data: type_error')
-                info_box(self, 'Сбой загрузки.', 'Не удалось загрузить данные.\n'
-                                                 'Проверьте соединение с интернетом.')
-
     def show_weather(self):
         label_now = QLabel()
         label_now.setAlignment(Qt.AlignCenter)
-        self.ui.verticalLayout_weather.addWidget(label_now)
-        label_now.setText(get_now_str(self.w_dada['now'], self.w_dada['loc']))
+        self.ui.verticalLayout_5.insertWidget(1, label_now)
+        try:
+            label_now.setText(get_now_str(self.w_data['now'], self.w_data['loc']))
+        except KeyError:
+            pass
 
     def show_daly(self):
-        print(get_daily_str(self.w_dada['forec']))
+        label_list = []
+        try:
+            for i in range(len(self.w_data['forec'])):
+                label = QLabel()
+                label.setText(get_daily_str(self.w_data['forec'])[i])
+                label_list.append(label)
+                j = 1
+            for i in range(len(label_list)):
+                j += 2
+                self.ui.verticalLayout_5.insertWidget(j, label_list[i])
+        except KeyError:
+            pass
 
 
 if __name__ == '__main__':

@@ -44,6 +44,8 @@ def get_now_str(w_now: dict, w_loc: dict):
 def get_daily_str(w_dais: list):
     daily_str = []
     for i in w_dais:
-        day_str = f"{i}"
+        day_str = f"{dt.fromtimestamp(i[2]): %A  %d %B}. Средняя температура {i[0]['avgtemp_c']}℃ ," \
+                  f" днём {i[0]['maxtemp_c']}℃  ночью {i[0]['mintemp_c']}℃"
         daily_str.append(day_str)
+    print(daily_str)
     return daily_str
