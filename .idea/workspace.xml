@@ -4,17 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="439d8bf2-245d-441f-b40e-11949777ba57" name="Changes" comment="начал делать погоду на три дня">
-      <change afterPath="$PROJECT_DIR$/main_form.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/main_form.ui" afterDir="false" />
+    <list default="true" id="439d8bf2-245d-441f-b40e-11949777ba57" name="Changes" comment="28.06.22 обновил интерфейс">
+      <change afterPath="$PROJECT_DIR$/create_charts.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/history_favorite_datas.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/main_2.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_main.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/_main.ui" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/input_diaog.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/main_form.py" beforeDir="false" afterPath="$PROJECT_DIR$/main_form.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main_form.ui" beforeDir="false" afterPath="$PROJECT_DIR$/main_form.ui" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/my_qssStyle.qss" beforeDir="false" afterPath="$PROJECT_DIR$/my_qssStyle.qss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/my_searche_dialog.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/searche_dialog.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/searche_dialog.ui" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/wd_data.py" beforeDir="false" afterPath="$PROJECT_DIR$/wd_data.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/weather_main.py" beforeDir="false" afterPath="$PROJECT_DIR$/weather_main.py" afterDir="false" />
     </list>
@@ -93,6 +90,27 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
+    <configuration name="main_2" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="weather_puside" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/main_2.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <configuration name="message_boxes" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="weather_puside" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -137,6 +155,7 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.main_2" />
         <item itemvalue="Python.input_diaog" />
         <item itemvalue="Python.message_boxes" />
       </list>
@@ -186,7 +205,14 @@
       <option name="project" value="LOCAL" />
       <updated>1655412668190</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="28.06.22 обновил интерфейс">
+      <created>1656432575636</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1656432575637</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="UnknownFeatures">
@@ -215,6 +241,17 @@
     <MESSAGE value="второй коммит" />
     <MESSAGE value="третий коммит" />
     <MESSAGE value="to` третий коммит" />
-    <option name="LAST_COMMIT_MESSAGE" value="to` третий коммит" />
+    <MESSAGE value="28.06.22 обновил интерфейс" />
+    <option name="LAST_COMMIT_MESSAGE" value="28.06.22 обновил интерфейс" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/main_2.py</url>
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

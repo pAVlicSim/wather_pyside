@@ -22,7 +22,8 @@ def wind_to_str(deg: int):
     return wind_direction
 
 
-def get_now_str(w_now: dict, w_loc: dict):
+def get_weather_str(w_now: dict, w_loc: dict, w_dais: list):
+    weather_str = []
     if w_now != {}:
         current_str = f"{w_loc['name']}   " \
                       f"{dt.fromtimestamp(w_now['last_updated_epoch']): %A  %d.%m.%y  %H:%M}       сейчас " \
@@ -38,14 +39,16 @@ def get_now_str(w_now: dict, w_loc: dict):
                       f"   видимость {w_now['vis_km']}км"
     else:
         current_str = 'Нет данных.'
-    return current_str
-
-
-def get_daily_str(w_dais: list):
-    daily_str = []
+    weather_str.append(current_str)
     for i in w_dais:
-        day_str = f"{dt.fromtimestamp(i[2]): %A  %d %B}. Средняя температура {i[0]['avgtemp_c']}℃ ," \
-                  f" днём {i[0]['maxtemp_c']}℃  ночью {i[0]['mintemp_c']}℃"
-        daily_str.append(day_str)
-    print(daily_str)
-    return daily_str
+        day_str = f"{dt.fromtimestamp(i[2]): %A  %d %B}.   {i[0]['condition']['text']}      Солнце: восход " \
+                  f"{i[1]['sunrise']}     закат {i[1]['sunset']}.\nЛуна: {i[1]['moon_phase']}     восход {i[1]['moonrise']}" \
+                  f"     закат {i[1]['moonset']} \nСредняя температура {i[0]['avgtemp_c']}℃    днём {i[0]['maxtemp_c']}℃ " \
+                  f"    ночью {i[0]['mintemp_c']}℃\nСредняя влажность {i[0]['avghumidity']}%.     Средняя видимость " \
+                  f"{i[0]['avgvis_km']}км. \nВероятность дождя {i[0]['daily_chance_of_rain']}%     Вероятность снега " \
+                  f" {i[0]['daily_chance_of_snow']}% \nОбщее количество осадков {i[0]['totalprecip_mm']}мм.\n" \
+                  f"Более подробная информация в погодных графиках."
+        weather_str.append(day_str)
+    # print(weather_str)
+    return weather_str
+

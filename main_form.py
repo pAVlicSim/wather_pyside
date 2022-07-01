@@ -18,8 +18,8 @@ from PySide6.QtGui import (QAction, QBrush, QColor, QConicalGradient,
     QTransform)
 from PySide6.QtWidgets import (QApplication, QComboBox, QHBoxLayout, QLabel,
     QLineEdit, QMainWindow, QMenu, QMenuBar,
-    QScrollArea, QSizePolicy, QStatusBar, QVBoxLayout,
-    QWidget)
+    QPushButton, QScrollArea, QSizePolicy, QStatusBar,
+    QVBoxLayout, QWidget)
 
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
@@ -53,6 +53,12 @@ class Ui_MainWindow(object):
 
         self.horizontalLayout.addWidget(self.city_edit)
 
+        self.push_search = QPushButton(self.centralwidget)
+        self.push_search.setObjectName(u"push_search")
+        self.push_search.setCheckable(False)
+
+        self.horizontalLayout.addWidget(self.push_search)
+
         self.combo_favorites = QComboBox(self.centralwidget)
         self.combo_favorites.setObjectName(u"combo_favorites")
         self.combo_favorites.setEditable(True)
@@ -68,8 +74,8 @@ class Ui_MainWindow(object):
         self.horizontalLayout.addWidget(self.combo_history)
 
         self.horizontalLayout.setStretch(1, 2)
-        self.horizontalLayout.setStretch(2, 1)
         self.horizontalLayout.setStretch(3, 1)
+        self.horizontalLayout.setStretch(4, 1)
 
         self.verticalLayout_2.addLayout(self.horizontalLayout)
 
@@ -90,20 +96,44 @@ class Ui_MainWindow(object):
 
         self.verticalLayout_5.addWidget(self.label_2)
 
+        self.label_now = QLabel(self.scrollAreaWidgetContents)
+        self.label_now.setObjectName(u"label_now")
+        self.label_now.setAlignment(Qt.AlignCenter)
+
+        self.verticalLayout_5.addWidget(self.label_now)
+
         self.label_3 = QLabel(self.scrollAreaWidgetContents)
         self.label_3.setObjectName(u"label_3")
 
         self.verticalLayout_5.addWidget(self.label_3)
+
+        self.label_today = QLabel(self.scrollAreaWidgetContents)
+        self.label_today.setObjectName(u"label_today")
+        self.label_today.setAlignment(Qt.AlignCenter)
+
+        self.verticalLayout_5.addWidget(self.label_today)
 
         self.label_4 = QLabel(self.scrollAreaWidgetContents)
         self.label_4.setObjectName(u"label_4")
 
         self.verticalLayout_5.addWidget(self.label_4)
 
+        self.label_tomorrow = QLabel(self.scrollAreaWidgetContents)
+        self.label_tomorrow.setObjectName(u"label_tomorrow")
+        self.label_tomorrow.setAlignment(Qt.AlignCenter)
+
+        self.verticalLayout_5.addWidget(self.label_tomorrow)
+
         self.label_5 = QLabel(self.scrollAreaWidgetContents)
         self.label_5.setObjectName(u"label_5")
 
         self.verticalLayout_5.addWidget(self.label_5)
+
+        self.label_after_tomorrow = QLabel(self.scrollAreaWidgetContents)
+        self.label_after_tomorrow.setObjectName(u"label_after_tomorrow")
+        self.label_after_tomorrow.setAlignment(Qt.AlignCenter)
+
+        self.verticalLayout_5.addWidget(self.label_after_tomorrow)
 
         self.scrollArea.setWidget(self.scrollAreaWidgetContents)
 
@@ -145,12 +175,17 @@ class Ui_MainWindow(object):
         self.action_after_tomorrow.setText(QCoreApplication.translate("MainWindow", u"\u041f\u043e\u0441\u043b\u0435\u0437\u0430\u0432\u0442\u0440\u0430", None))
         self.action_three_days.setText(QCoreApplication.translate("MainWindow", u"\u041d\u0430 \u0442\u0440\u0438 \u0434\u043d\u044f", None))
         self.label.setText(QCoreApplication.translate("MainWindow", u"\u0413\u043e\u0440\u043e\u0434", None))
+        self.push_search.setText(QCoreApplication.translate("MainWindow", u"\u0418\u0441\u043a\u0430\u0442\u044c", None))
         self.combo_favorites.setCurrentText(QCoreApplication.translate("MainWindow", u"\u0418\u0437\u0431\u0430\u043d\u043d\u043e\u0435", None))
         self.combo_history.setCurrentText(QCoreApplication.translate("MainWindow", u"\u0418\u0441\u0442\u043e\u0440\u0438\u044f", None))
         self.label_2.setText(QCoreApplication.translate("MainWindow", u"\u0421\u0435\u0439\u0447\u0430\u0441", None))
+        self.label_now.setText(QCoreApplication.translate("MainWindow", u"TextLabel", None))
         self.label_3.setText(QCoreApplication.translate("MainWindow", u"\u0421\u0435\u0433\u043e\u0434\u043d\u044f", None))
+        self.label_today.setText(QCoreApplication.translate("MainWindow", u"TextLabel", None))
         self.label_4.setText(QCoreApplication.translate("MainWindow", u"\u0417\u0430\u0432\u0442\u0440\u0430", None))
+        self.label_tomorrow.setText(QCoreApplication.translate("MainWindow", u"TextLabel", None))
         self.label_5.setText(QCoreApplication.translate("MainWindow", u"\u041f\u043e\u0441\u043b\u0435\u0437\u0430\u0432\u0442\u0440\u0430", None))
+        self.label_after_tomorrow.setText(QCoreApplication.translate("MainWindow", u"TextLabel", None))
         self.menu.setTitle(QCoreApplication.translate("MainWindow", u"\u0413\u0440\u0430\u0444\u0438\u043a\u0438", None))
     # retranslateUi
 
